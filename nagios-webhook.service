@@ -1,0 +1,11 @@
+[Unit]
+Description=uWSGI instance to serve Nagios-Webhook
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/nagios-webhook
+ExecStart=/usr/bin/uwsgi --ini /opt/nagios-webhook/uwsgi.ini --logto2 /var/log/nagios-webhook.log
+
+[Install]
+WantedBy=multi-user.target
